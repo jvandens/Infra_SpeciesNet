@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  speciesnet:
+    build: ./speciesnet
+    image: speciesnet:gpu
+    container_name: speciesnet_worker
+    restart: unless-stopped
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+    volumes:
+      - ./data:/data
+
+    command: ["--version"]
