@@ -1,0 +1,19 @@
+name: speciesnet
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch
+  - pytorch-cuda=12.1
+  - torchvision
+  - cudatoolkit
+  - numpy
+  - pandas
+  - pillow
+  - opencv
+  - tqdm
+  - pip:
+      - git+https://github.com/google/cameratrapai.git
