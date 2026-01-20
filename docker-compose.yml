@@ -14,6 +14,6 @@ services:
             - capabilities: [gpu]
 
     volumes:
-      - ./data:/data
+      - /srv04a/10451739_CDOT_Greenland/data:/data
 
     command: ["--version"]
