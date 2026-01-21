@@ -27,12 +27,5 @@ RUN pip install --no-cache-dir \
 # Data mount
 RUN mkdir -p /data
 
-# Sanity check
-RUN python - <<EOF
-import torch
-print("Torch version:", torch.__version__)
-print("CUDA build:", torch.version.cuda)
-print("CUDA available (build-time):", torch.cuda.is_available())
-EOF
-
-ENTRYPOINT ["python"]
+# Idle forever
+ENTRYPOINT ["bash", "-c", "sleep infinity"]
