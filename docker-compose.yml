@@ -2,18 +2,16 @@ version: "3.9"
 
 services:
   speciesnet:
-    build: ./speciesnet
-    image: speciesnet:gpu
-    container_name: speciesnet_worker
-    restart: unless-stopped
-
+    image: speciesnet:cuda12.2
+    container_name: speciesnet
+    runtime: nvidia
     deploy:
       resources:
         reservations:
           devices:
             - capabilities: [gpu]
-
+            
     volumes:
       - /srv04a/10451739_CDOT_Greenland/data:/data
-
-    command: ["--version"]
+      
+    working_dir: /data
