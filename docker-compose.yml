@@ -5,13 +5,13 @@ services:
     image: speciesnet:cuda12.2
     container_name: speciesnet
     runtime: nvidia
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
             
     volumes:
       - /srv04a/10451739_CDOT_Greenland/data:/data
       
     working_dir: /data
+    tty: true
+    stdin_open: true
